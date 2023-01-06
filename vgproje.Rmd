@@ -1,0 +1,59 @@
+---
+title: "vgproje"
+output: pdf
+date: "2023-01-03"
+---
+
+```{r}
+options(repos = list(CRAN="http://cran.rstudio.com/"))
+install.packages("ggplot2")
+install.packages("tidyverse")
+install.packages("dplyr")
+library(ggplot2)
+library(tidyverse)
+library(dplyr)
+```
+
+```{r}
+library(readxl)
+data <- read_excel("C:/Users/serca/Desktop/Yeni Microsoft Excel Çalışma Sayfası (3).xlsx", 
+    col_types = c("skip", "text", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric"))
+```
+
+```{r}
+ggplot(data, aes(x = data$`Average Monthly Net Salary  (After Tax)`))+
+  geom_histogram(aes(y = ..density..),
+                 bins = 23,
+                 fill = "darkgray")+
+  geom_density(lwd = 1)+
+  geom_vline(aes(xintercept=405),
+            color="black", linetype="dashed", size=1)+
+  geom_label(aes(x=405.03, label="İstanbul", y=0.00100), colour="black",  vjust = 2, text=element_text(size=3), geom="label")+
+  scale_x_continuous(breaks = seq(0,6000,1000))+
+  theme_bw()+
+  theme(panel.border = element_blank(),
+        panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(),
+  axis.line = element_line(colour = "black"))+
+  labs(x = "Aylık Net Maaş",
+       y = "Yoğunluk")
+  
+```
