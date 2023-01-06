@@ -1,4 +1,4 @@
-# Yasam_Maliyeti
+# Yasam Maliyeti
 Veri Görselleştirme Projesi
 
 
