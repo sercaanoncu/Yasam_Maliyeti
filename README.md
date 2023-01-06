@@ -1,4 +1,4 @@
-# Yasam Maliyeti
+# Yaşam Maliyeti
 Veri Görselleştirme Projesi
 
 
